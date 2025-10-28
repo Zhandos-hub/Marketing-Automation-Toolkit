@@ -4,7 +4,10 @@ Phone Number Cleaner (for mailing)
 This script reads a list of phone numbers from 'a.txt', removes all
 non-numeric characters, filters out duplicates and error data,
 and saves the sorted, clean list to 'output.txt'.
+Copyright (c) 2025 ZHANDOS NUREKENOV
+Licensed under the MIT License.
 """
+
 
 import sys
 
