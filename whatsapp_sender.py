@@ -48,15 +48,15 @@ def load_numbers_from_file(filename: str) -> list[str]:
         with open(filename, "r", encoding="utf-8") as f:
             numbers = [line.strip() for line in f if line.strip()]
         if not numbers:
-            print(f"⚠️ Warning: {filename} is empty.")
+            print(f"Warning: {filename} is empty.")
         else:
-            print(f"✅ Loaded {len(numbers)} numbers.")
+            print(f"Loaded {len(numbers)} numbers.")
         return numbers
     except FileNotFoundError:
-        print(f"❌ Error: {filename} not found.", file=sys.stderr)
+        print(f"Error: {filename} not found.", file=sys.stderr)
         return []
     except Exception as e:
-        print(f"❌ Error reading file: {e}", file=sys.stderr)
+        print(f"Error reading file: {e}", file=sys.stderr)
         return []
 
 
@@ -74,7 +74,7 @@ def send_message(driver: webdriver.Chrome, phone: str, message: str):
                 (By.XPATH, '//div[@contenteditable="true"][@data-tab="10"]')
             )
         )
-        print("  💬 Chat window opened.")
+        print("Chat window opened.")
 
         # Type the message
         input_box.click()
@@ -100,15 +100,15 @@ def send_message(driver: webdriver.Chrome, phone: str, message: str):
             )
 
         driver.execute_script("arguments[0].click();", send_button)
-        print(f"  ✅ Message sent to {phone}")
+        print(f"Message sent to {phone}")
         time.sleep(random.uniform(2.0, 4.0))
 
     except TimeoutException:
-        print(f"  ⚠️ Timeout for {phone}: Chat not found or WhatsApp slow.")
+        print(f"Timeout for {phone}: Chat not found or WhatsApp slow.")
     except NoSuchElementException as e:
-        print(f"  ⚠️ Element not found for {phone}: {e}")
+        print(f"Element not found for {phone}: {e}")
     except Exception as e:
-        print(f"  ❌ Unexpected error for {phone}: {e}")
+        print(f"Unexpected error for {phone}: {e}")
 
 
 def main():
@@ -116,7 +116,7 @@ def main():
     phone_numbers = load_numbers_from_file(NUMBERS_FILE)
     if not phone_numbers:
         print("No numbers found. Exiting.")
-        input("\nPress Enter to exit...")
+        input("\n Press Enter to exit...")
         return
 
     driver = None
@@ -156,19 +156,19 @@ def main():
             print(f"\n📨 Sending message {i} of {total}...")
             send_message(driver, phone, MESSAGE_TO_SEND)
             sleep_time = random.uniform(5.0, 10.0)
-            print(f"  ⏳ Waiting {sleep_time:.1f}s before next message...")
+            print(f"Waiting {sleep_time:.1f}s before next message...")
             time.sleep(sleep_time)
 
-        print("\n✅ All messages sent successfully!")
+        print("\n All messages sent successfully!")
 
     except Exception as e:
-        print(f"\n🚨 Critical error: {e}", file=sys.stderr)
+        print(f"\n Critical error: {e}", file=sys.stderr)
 
     finally:
         if driver:
             print("Closing browser...")
             driver.quit()
-        input("\nScript finished. Press Enter to exit...")
+        input("\n Script finished. Press Enter to exit...")
 
 
 if __name__ == "__main__":
