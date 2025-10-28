@@ -4,11 +4,14 @@ WhatsApp Message Sender (Stable Persistent Login - Chrome 141+)
 Automates sending a predefined message to multiple numbers via WhatsApp Web
 using Selenium.
 
-✅ Fixes & Upgrades:
+Fixes & Upgrades:
 - Keeps WhatsApp login session (no QR scan each time)
 - Works with new Chrome 141+ builds
 - Stable "Send" button selector
 - Handles chat load delays gracefully
+
+Copyright (c) 2025 ZHANDOS NUREKENOV
+Licensed under the MIT License.
 """
 
 from selenium import webdriver
