@@ -103,3 +103,8 @@ This tool leverages **Playwright** to scrape phone numbers for businesses from t
 ### Disclaimer
 
 Web scraping may violate the terms of service of the target website (2GIS). Use this tool responsibly, adhere to ethical scraping guidelines, and ensure compliance with all applicable laws and regulations.
+
+
+### Lisence 
+
+This project is released under the MIT License. You are free to use, modify, and distribute it for personal or commercial purposes.
