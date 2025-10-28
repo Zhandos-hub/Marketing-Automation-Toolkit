@@ -8,6 +8,8 @@ from 2GIS for a user-specified city.
 It navigates through search pages, opens each firm's page,
 clicks the "Show phone" button, and saves the unique numbers
 to 'phones_2gis.txt'.
+Copyright (c) 2025 ZHANDOS NUREKENOV
+Licensed under the MIT License.
 """
 
 import time
